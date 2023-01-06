@@ -28,7 +28,7 @@ zfs create -V 16G -b $(getconf PAGESIZE) -o compression=zle \
 mkswap /dev/zvol/zroot/swap
 
 zpool export zroot
-zpool import -d /dev/disk/by-id -R /mnt zroot -N
+zpool import -R /mnt zroot -N
 
 zfs mount zroot/ROOT/default
 zfs mount -a
