@@ -26,9 +26,14 @@ zfs create -V 16G -b $(getconf PAGESIZE) -o compression=zle \
       -o primarycache=metadata -o secondarycache=none \
       -o com.sun:auto-snapshot=false zroot/swap
 mkswap /dev/zvol/zroot/swap
+zpool set bootfs=zroot/ROOT/default zroot
+zpool set cachefile=/etc/zfs/zpool.cache zroot
 
 zpool export zroot
-zpool import -R /mnt zroot -N
+
+rm -rf /mnt/*
+
+zpool import -d /dev/disk/by-uuid -R /mnt zroot -N
 
 zfs mount zroot/ROOT/default
 zfs mount -a
