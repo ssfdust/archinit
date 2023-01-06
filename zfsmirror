@@ -1,0 +1,6 @@
+[archzfs]
+Server = http://archzfs.com/$repo/$arch
+Server = http://mirror.sum7.eu/archlinux/archzfs/$repo/$arch
+Server = https://mirror.biocrafting.net/archlinux/archzfs/$repo/$arch
+Server = https://mirror.in.themindsmaze.com/archzfs/$repo/$arch
+Server = https://zxcvfdsa.com/archzfs/$repo/$arch
