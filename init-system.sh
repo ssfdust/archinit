@@ -6,6 +6,5 @@ systemctl disable systemd-resolved
 
 plymouth-set-default-theme -R arch-charge-big
 ln -s /usr/share/zoneinfo/Shanghai /etc/localtime
-refind-install
 zpool set cachefile=/etc/zfs/zpool.cache zroot
 zgenhostid $(hostid)

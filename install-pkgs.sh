@@ -1,11 +1,13 @@
 #!/bin/sh
 cd ~/dotfiles
 proxychains -q make pacman
-sudo pacman -S archlinuxcn-keyring
-sudo pacman -S powerpill bauerbill
+sudo pacman -Sy --noconfirm archlinuxcn-keyring
+sudo pacman -S --noconfirm powerpill bauerbill
 make pacman
-bb-wrapper -S $(grep -v AUR misc/packages.txt)
-proxychains -q bb-wrapper -S --aur-only --build-dir ~/build $(grep AUR misc/packages.txt)
+bb-wrapper -S --noconfirm $(grep -v AUR misc/packages.txt)
 mkdir -p ~/.local/share/mail/{gmail,qq,juminfo}
 notmuch setup
-make headless
+sudo refind-install
+proxychains -q bauerbill -S --aur --build-dir ~/build $(grep AUR misc/packages.txt)
+echo please install files in ~/build
+echo please run proxychains -q make headless in dotfiles

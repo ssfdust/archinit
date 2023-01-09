@@ -16,6 +16,7 @@ zpool create -f -o ashift=12         \
 
 zpool set cachefile=/etc/zfs/zpool.cache zroot
 
+# enable zfs-mount-generator
 systemctl start zfs-zed
 
 mkdir /etc/zfs/zfs-list.cache
@@ -24,7 +25,6 @@ touch /etc/zfs/zfs-list.cache/zroot
 zfs create -o mountpoint=none                 zroot/ROOT
 zfs create -o mountpoint=/ -o canmount=noauto zroot/ROOT/default
 
-# enable zfs-mount-generator
 
 zfs create -o mountpoint=none                 zroot/data
 zfs create -o mountpoint=/home                zroot/data/home
@@ -39,6 +39,8 @@ zfs create                                    zroot/var/log
 zfs create                                    zroot/var/spool
 zfs create -o com.sun:auto-snapshot=false     zroot/var/cache
 zfs create -o com.sun:auto-snapshot=false     zroot/var/tmp
+
+zfs create                                    zroot/opt
 
 zfs create -V $2 \
     -b $(getconf PAGESIZE) \
