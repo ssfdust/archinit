@@ -1,5 +1,5 @@
 #!/bin/sh
-git clone https://github.91chi.fun/https://github.com/ssfdust/wayfire-build /dev/shm/wayfire-installer
+git clone https://github.91chi.fun/https://github.com/ssfdust/wayfire-pkgbuild /dev/shm/wayfire-installer
 cd /dev/shm/wayfire-installer
-vim updatepkgs.sh
+nvim updatepkgs.sh
 proxychains -q sh updatepkg.sh

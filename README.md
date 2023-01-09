@@ -138,7 +138,6 @@ reboot
 #### gpg
 
 ```
-
 gpg --import ~/CloudBox/Sync/keys/public-key.asc
 gpg --import ~/CloudBox/Sync/keys/private-key.asc
 > trust

@@ -35,4 +35,4 @@ EOF
 
 genfstab -U -p /mnt | grep -v "^zroot" >> /mnt/etc/fstab
 cp /etc/zfs/zpool.cache /mnt/etc/zfs
-cp -a /etc/zfs/zfs-list.cache /mnt/zfs
+cp -a /etc/zfs/zfs-list.cache /mnt/etc/zfs
