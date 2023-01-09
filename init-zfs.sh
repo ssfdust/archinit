@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+pooldisk=$(ls -l /dev/disk/by-partuuid | awk "/$1/ { print \$9 }" | xargs echo)
 zpool create -f -o ashift=12         \
              -O acltype=posixacl       \
              -O relatime=on            \
