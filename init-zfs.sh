@@ -56,6 +56,8 @@ mkswap /dev/zvol/zroot/swap
 
 zpool set bootfs=zroot/ROOT/default zroot
 
+zfs umount -a
+zfs umount zroot/ROOT/default
 zpool export zroot
 
 rm -rf /mnt/*
