@@ -62,7 +62,8 @@ zpool export zroot
 
 rm -rf /mnt/*
 
-zpool import -d /dev/disk/by-uuid -R /mnt zroot -N || zpool import -R /mnt zroot
+zpool import -d /dev/disk/by-partuuid -R /mnt zroot -N \
+    || zpool import -R /mnt zroot -N
 
 zfs mount zroot/ROOT/default
 zfs mount -a
