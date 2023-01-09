@@ -15,14 +15,16 @@ zpool create -f -o ashift=12         \
              zroot $1
 
 zpool set cachefile=/etc/zfs/zpool.cache zroot
+
+systemctl start zfs-zed
+
+mkdir /etc/zfs/zfs-list.cache
 touch /etc/zfs/zfs-list.cache/zroot
 
 zfs create -o mountpoint=none                 zroot/ROOT
 zfs create -o mountpoint=/ -o canmount=noauto zroot/ROOT/default
 
 # enable zfs-mount-generator
-mkdir /etc/zfs/zfs-list.cache
-systemctl start zfs-zed
 
 zfs create -o mountpoint=none                 zroot/data
 zfs create -o mountpoint=/home                zroot/data/home
