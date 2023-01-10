@@ -3,6 +3,7 @@ set -e
 pooldisk=$(ls -l /dev/disk/by-partuuid | awk "/$1/ { print \$9 }" | xargs echo)
 zpool create -f -o ashift=12         \
              -O acltype=posixacl       \
+             -O atime=off              \
              -O relatime=on            \
              -O xattr=sa               \
              -O dnodesize=legacy       \
@@ -10,7 +11,7 @@ zpool create -f -o ashift=12         \
              -O mountpoint=none        \
              -O canmount=off           \
              -O devices=off            \
-             -O compression=zstd        \
+             -O compression=zstd       \
              -R /mnt/zroot             \
              zroot $1
 
@@ -24,7 +25,6 @@ touch /etc/zfs/zfs-list.cache/zroot
 
 zfs create -o mountpoint=none                 zroot/ROOT
 zfs create -o mountpoint=/ -o canmount=noauto zroot/ROOT/default
-
 
 zfs create -o mountpoint=none                 zroot/data
 zfs create -o mountpoint=/home                zroot/data/home
