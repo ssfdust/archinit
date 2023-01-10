@@ -10,4 +10,3 @@ notmuch setup
 sudo refind-install
 proxychains -q bauerbill -S --aur --build-dir ~/build $(grep AUR misc/packages.txt)
 echo please install files in ~/build
-echo please run proxychains -q make headless in dotfiles
