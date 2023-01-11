@@ -13,6 +13,6 @@ cp /home/ssfdust/CloudBox/Sync/apps/clash/* /etc/clash/
 chown -R nobody:nobody /etc/clash
 
 systemctl enable zfs.target zfs-import-cache zfs-import.target zfs-zed \
-    NetworkManager sddm-plymouth firewalld libvirtd \
+    NetworkManager sddm-plymouth firewalld libvirtd plocate-updatedb.timer \
     syncthing@ssfdust clash@nobody
 systemctl disable systemd-resolved
