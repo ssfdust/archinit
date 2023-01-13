@@ -4,6 +4,8 @@
 
 ```
 set-window-option -g  mode-keys vi
+set -g prefix C-a
+bind C-a send-prefix
 ```
 
 ### Preparation
@@ -35,6 +37,14 @@ sh archinit/clone-archiso-zfs.sh
 ```bash
 sh init
 ```
+
+##### Test kernel module available
+
+```
+pacman -S zfs-linux-lts
+```
+
+If the command is failed, you should switch to archzfs-testing repo.
 
 #### Create partitions and filesystems
 
@@ -70,7 +80,7 @@ passwd
 useradd -g users -G storage,wheel,power,network,audio,video -m ssfdust
 passwd ssfdust
 cp -r archinit /home/ssfdust
-chown ssfdust:users /home/ssfdust/archinit
+chown ssfdust:users -R /home/ssfdust/archinit
 pacman -Syu
 EDITOR=nvim visudo
 ```
