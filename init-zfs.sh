@@ -40,7 +40,7 @@ zfs create                                    zroot/var/spool
 zfs create -o com.sun:auto-snapshot=false     zroot/var/cache
 zfs create -o com.sun:auto-snapshot=false     zroot/var/tmp
 
-zfs create                                    zroot/opt
+zfs create -o mountpoint=/opt                 zroot/opt
 
 zfs create -V $2 \
     -b $(getconf PAGESIZE) \
