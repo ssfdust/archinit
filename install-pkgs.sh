@@ -5,8 +5,6 @@ sudo pacman -Sy --noconfirm archlinuxcn-keyring
 sudo pacman -S --noconfirm powerpill bauerbill
 make pacman
 bb-wrapper -S --noconfirm $(grep -v AUR misc/packages.txt)
-mkdir -p ~/.local/share/mail/{gmail,qq,juminfo}
-notmuch setup
 sudo refind-install
 proxychains -q bauerbill -S --aur --build-dir ~/build $(grep AUR misc/packages.txt)
 echo please install files in ~/build
